@@ -2,6 +2,9 @@ import svelte from "rollup-plugin-svelte";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import replace from "rollup-plugin-replace";
+import { terser } from "rollup-plugin-terser";
+
+const production = true;
 
 const svelteConfig = {
   input: "src/index-svelte.js",
@@ -14,12 +17,12 @@ const svelteConfig = {
   plugins: [
     resolve({ browser: true }),
     svelte({
-      // we'll extract any component CSS out into
-      // a separate file — better for performance
+      dev: !production,
       css: css => {
         css.write("dist/css/svelte.bundle.css");
       }
-    })
+    }),
+    production && terser()
   ]
 };
 
@@ -35,8 +38,11 @@ const reactConfig = {
     resolve({ browser: true }),
     commonjs(),
     replace({
-      "process.env.NODE_ENV": JSON.stringify("development")
-    })
+      "process.env.NODE_ENV": JSON.stringify(
+        production ? "production" : "development"
+      )
+    }),
+    production && terser()
   ]
 };
 export default [svelteConfig, reactConfig];
