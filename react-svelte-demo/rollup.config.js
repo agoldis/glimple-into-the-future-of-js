@@ -4,7 +4,7 @@ import commonjs from "rollup-plugin-commonjs";
 import replace from "rollup-plugin-replace";
 import { terser } from "rollup-plugin-terser";
 
-const production = true;
+const production = false;
 
 const svelteConfig = {
   input: "src/index-svelte.js",
