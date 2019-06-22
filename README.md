@@ -1,5 +1,6 @@
 > This is a transcript of the my talk I have given as part of Invoice Simple hiring event.
-> [Slides](https://docs.google.com/presentation/d/1yjf4sBQ8afFYhlM7nQB1hl78pZL_AbkYEwvcTPmmcRw/edit?usp=sharing):
+>
+> [Slides](https://docs.google.com/presentation/d/1yjf4sBQ8afFYhlM7nQB1hl78pZL_AbkYEwvcTPmmcRw/edit?usp=sharing)
 
 # Glimpse into the future of JS
 
@@ -9,6 +10,8 @@ Love it or hate it, JavaScript has been growing into the most popular, dominant 
 Over the last decade, the adoption of JS has only been growing, showing no signs of slowing down.
 
 According to https://insights.stackoverflow.com/survey/2019#technology-programming-languages to StackOverflow’s annual survey, 69.8% of respondents and 71.5% of professional developers are using JavaScript today.
+
+![Javascript](https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png)
 
 From an underdog the language and the eco-system became a monster that's eating the world of web, mobile and server development.
 
@@ -24,7 +27,11 @@ A lot of developers dislike Javascript due to various reasons like:
 
 While still not perfect, the situation improved a lot at the recent years with introduction of Typescript (and similar) supersets of JS that provide better scalability, tooling and compile-time safety.
 
+![Typescript](https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png)
+
 TC39 committee improves language specification, while browsers and NodeJS are rushing to implement them - that improves developer's experience and allows to run more compact and readable code.
+
+![TC39](https://live.staticflickr.com/4623/28255675539_95a96b168d_b.jpg)
 
 To summarize, you defenetely cannot ignore JS eco-system anymore. For those that who are not familiar with JS at all, it might be reasonable for them to try and gain (even basic) experience with this technology.
 
@@ -38,13 +45,18 @@ Javascript was originally designed to work in browsers (although there was JScri
 
 Today we're observing the golden era if what is called "VDOM frameworks", with (p)React and Vue leading the trend.
 
-For those who don't know, Virtual DOM is a data structure that is smartly used by frameworks to represent UI and prevent unneccessary updates to the actal DOM. By doing only the minimal amount of expensive UI updates, we can achieve a performant "reactive" behavior. Every time "state" changes the framework updates the virtual DOM, calculates what minimal change is required for the rendered output and applies it.
+For those who don't know, [Virtual DOM](https://bitsofco.de/understanding-the-virtual-dom/) is a data structure that is smartly used by frameworks to represent UI and prevent unneccessary updates to the actal DOM. By doing only the minimal amount of expensive UI updates, we can achieve a performant "reactive" behavior.
 
+Every time "state" changes the framework updates the virtual DOM, calculates what minimal change is required for the rendered output and applies it.
+
+![Virtual DOM](https://i2.wp.com/programmingwithmosh.com/wp-content/uploads/2018/11/lnrn_0201.png?resize=1024%2C685&ssl=1)
 That allows us to describe UI as a set of states, and frameworks effectively transform each state to HTML for web or Native elements for mobile.
 
 The trend was popularized by React as reactivity enables "declarative" style of programming. The approach was so successful that it was implemented on other tech stacks as well - Flutter by Google, the recently announced Swift UI by Apple.
 
-There's a natural limitation of VDOM-based solutions. Every app needs framework's runtime in order to run. While on mobile the size of the runtime is not a big deal, for web application it is a problem. Framework developers are challenged by keeping the runtime footprint small in order not to increase bundle size. That's what also limits framework's author from natively supporting advanced features like animation or state management.
+There's a natural limitation of VDOM-based solutions. Every app needs framework's runtime in order to run. While on mobile the size of the runtime is not a big deal, for web application it is a problem.
+
+Framework developers are challenged by keeping the runtime footprint small in order not to increase bundle size. That's what also limits framework's author from natively supporting advanced features like animation or state management.
 
 In addition, even though VDOM is pretty fast, it still requires some computation to calculate the changes for each update.
 
@@ -53,6 +65,8 @@ That's why we are starting to see a new trend of "Headless Frameworks" or "Disap
 That allows to improve the performance even more, comparing to VDOM-based frameworks, as there's no reconciliation at all. It also reduces bundle size and allows more advanced features to be embedded as part of the framework.
 
 One particular example is a framework called Svelte.
+
+![Svelte](https://svelte.dev/svelte-logo-horizontal.svg)
 
 Let's do a quick demo to showcase a disappearing framework, we'll use Svelte and React as an example:
 
@@ -63,8 +77,6 @@ I have created a small project that renders the "Hello World" string into DOM.
 There's a very simple express HTTP server that serves files from "dist" directory.
 
 > Run `cd react-svelte-demo && yarn && ./start-server.sh`
-
----
 
 I use Rollup to bundle the project. There're 2 output bundles - one for the React app and the second one for Svelte.
 
@@ -87,13 +99,15 @@ Of course, the real frameworks comparison involves much more considerations like
 
 The idea was to show, at glance, what is a dissapearing framework, not to blame React for large runtime footprint.
 
+![Real world UI frameworks comparison](https://cdn-media-1.freecodecamp.org/images/DRmH8Fz15DLxXguz9d8NR0eVanX0U9xW9jom)
+
+https://www.freecodecamp.org/news/a-realworld-comparison-of-front-end-frameworks-with-benchmarks-2019-update-4be0d3c78075/
+
 I think that we'll see more attempts to remove frameworks and redundand code away from clients.
 
 That will allow to improve both user experience and developer experiences by moving more responsibility and tooling in to frameworks and keeping the initial bundle sized small.
 
-https://www.freecodecamp.org/news/a-realworld-comparison-of-front-end-frameworks-with-benchmarks-2019-update-4be0d3c78075/
-
-- Svelte (declarative headless framework)
+- Svelte https://svelte.dev/
 - Angular Elements https://angular.io/guide/elements
 - Stencil JS https://stenciljs.com/
 - Web Components https://developer.mozilla.org/en-US/docs/Web/Web_Components
