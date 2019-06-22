@@ -174,9 +174,17 @@ Relative specifiers should aways point to a filename.
 
 There’re also “bare” specifiers - they describe a package by its name. The package is resolved within “node_modules” directory, similar to how CommonJS works.
 
+![NodeJS Loading Scheme](https://raw.githubusercontent.com/yosuke-furukawa/esmodules_on_node/master/images/output.png)
+
+https://nodesource.com/blog/es-modules-and-node-js-hard-choices/
+
 ### Browsers
 
 Nice thing is that we're able to use modules in the similar way in modern browsers. Keep in mind that instead of reading from file system, the modules are server from HTTP server.
+
+![Browser modules](https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2018/03/10_construction.png)
+
+https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/
 
 > Launch `modularity-demo/browser/server.mjs`, show the network tab
 
